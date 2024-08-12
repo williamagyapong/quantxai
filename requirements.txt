@@ -1,0 +1,6 @@
+pandas==1.5.3
+# pandasai==2.0.28
+pandasai==2.2.14
+streamlit==1.32.2
+google-generativeai==0.4.1
+PyYAML==6.0.2 # For some reason the yaml model was required but not available
