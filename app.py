@@ -8,9 +8,9 @@ from pandasai import Agent
 from pandasai.responses.response_parser import  ResponseParser
 # from pandasai.exceptions import InvalidOutputValueMismatch
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 class StreamLitResponse(ResponseParser):
         def __init__(self,context) -> None:
@@ -25,7 +25,8 @@ class StreamLitResponse(ResponseParser):
                st.write(result['value'])
                return
 
-gemini_api_key = os.environ['Gemini']
+# gemini_api_key = os.environ['Gemini']
+gemini_api_key = st.secrets["Gemini"]
 # openai_key = os.getenv("OpenAI")
 
 def generateResponse(dataFrame,prompt):
