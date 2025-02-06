@@ -104,7 +104,7 @@ if uploaded_file is not None:
         
         with st.form(key='user_form',clear_on_submit=True):
             user_input = st.text_input("Type your message here",placeholder="Ask me about your data", key='text_input_value')
-            submit = st.form_submit_button(label='Go')
+            submit = st.form_submit_button(label='')
             # st.write(submit)   
         with st.spinner("Generating response..."):
                if user_input:
