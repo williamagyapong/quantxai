@@ -100,7 +100,7 @@ if uploaded_file is not None:
         #     # st.experimental_rerun()  # Optional: re-run the app to reset the input
         
         def update():
-            st.session_state.text += st.session_state.text_value
+            st.session_state.text_input += st.session_state.text_input
         
         with st.form(key='user_form',clear_on_submit=True):
             st.text_input('Enter any text', value="", key='text_input')
