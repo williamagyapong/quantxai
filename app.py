@@ -83,6 +83,10 @@ if uploaded_file is not None:
 
         # Plot the data
         user_input = st.text_input("Type your message here",placeholder="Ask me about your data")
+        # Create a button to clear the input
+        if st.button("Clear"):
+            # Reset the text input by setting it to an empty string
+            user_input = ""
         with st.spinner("Generating response..."):
                if user_input:
                 # try:
