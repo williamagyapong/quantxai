@@ -82,11 +82,23 @@ if uploaded_file is not None:
             st.write(df.head())
 
         # Plot the data
-        user_input = st.text_input("Type your message here",placeholder="Ask me about your data")
-        # Create a button to clear the input
-        if st.button("Clear"):
-            # Reset the text input by setting it to an empty string
-            user_input = ""
+        # user_input = st.text_input("Type your message here",placeholder="Ask me about your data")
+        #----- Create a button to clear the input
+        # Initialize session state to store text input value
+        if 'text_input' not in st.session_state:
+            st.session_state.text_input = ''
+        
+        # Display a text input widget
+        user_input = st.text_input("Type your message here",placeholder="Ask me about your data", value=st.session_state.text_input)
+        
+        # Store the user input in session state
+        st.session_state.text_input = user_input
+        
+        # Add a button to clear the input
+        if st.button('Clear'):
+            st.session_state.text_input = ''
+            # st.experimental_rerun()  # Optional: re-run the app to reset the input
+                
         with st.spinner("Generating response..."):
                if user_input:
                 # try:
