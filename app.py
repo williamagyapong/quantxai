@@ -91,9 +91,9 @@ if uploaded_file is not None:
             # st.write(submit)   
         with st.spinner("Generating response..."):
                if user_input:
-                       st.write(f'Showing response for the query "{user_input}":\n')
                 # try:
                        answer = generateResponse(dataFrame=df,prompt=user_input)
+                       st.write(f'Showing response for the query "{user_input}":\n')
                        st.write(answer)
                 # except InvalidOutputValueMismatch as e:
                         # st.image("./exports/charts/temp_chart.png")
