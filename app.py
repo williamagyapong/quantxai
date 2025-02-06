@@ -89,26 +89,27 @@ if uploaded_file is not None:
             st.session_state.text_input = ''
         
         # Display a text input widget
-        user_input = st.text_input("Type your message here",placeholder="Ask me about your data", value=st.session_state.text_input)
+        # user_input = st.text_input("Type your message here",placeholder="Ask me about your data", value=st.session_state.text_input)
         
         # Store the user input in session state
-        st.session_state.text_input = user_input
-        st.session_state.text_input = ''
+        # st.session_state.text_input = user_input
+        # st.session_state.text_input = ''
         # Add a button to clear the input
         # if st.button('Clear'):
         #     st.session_state.text_input = ''
         #     # st.experimental_rerun()  # Optional: re-run the app to reset the input
         
         def update():
-            st.session_state.text_input += st.session_state.text_input
+            st.session_state.text_input += st.session_state.text_input_value
         
         with st.form(key='user_form',clear_on_submit=True):
-            st.text_input('Enter any text', value="", key='text_input')
+            st.text_input("Type your message here",placeholder="Ask me about your data", value="", key='text_input_value')
             submit = st.form_submit_button(label='Update', on_click=update)
             st.write(submit)   
         with st.spinner("Generating response..."):
                st.write(f'Showing response for the query "{user_input}":\n')
-               if user_input:
+               if submit:
+                       user_input = st.session_state.text_input
                 # try:
                         answer = generateResponse(dataFrame=df,prompt=user_input)
                         st.write(answer)
