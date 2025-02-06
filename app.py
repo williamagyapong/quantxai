@@ -98,7 +98,14 @@ if uploaded_file is not None:
         # if st.button('Clear'):
         #     st.session_state.text_input = ''
         #     # st.experimental_rerun()  # Optional: re-run the app to reset the input
-                
+        
+        def update():
+            st.session_state.text += st.session_state.text_value
+        
+        with st.form(key='user_form',clear_on_submit=True):
+            st.text_input('Enter any text', value="", key='text_input')
+            submit = st.form_submit_button(label='Update', on_click=update)
+            st.write(submit)   
         with st.spinner("Generating response..."):
                st.write(f'Showing response for the query "{user_input}":\n')
                if user_input:
