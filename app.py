@@ -83,28 +83,11 @@ if uploaded_file is not None:
 
         #---------- Get and handle user prompt ----------
         # user_input = st.text_input("Type your message here",placeholder="Ask me about your data")
-        #----- Create a button to clear the input
-        # Initialize session state to store text input value
-        if 'text_input' not in st.session_state:
-            st.session_state.text_input = ''
-        
-        # Display a text input widget
-        # user_input = st.text_input("Type your message here",placeholder="Ask me about your data", value=st.session_state.text_input)
-        
-        # Store the user input in session state
-        # st.session_state.text_input = user_input
-        # st.session_state.text_input = ''
-        # Add a button to clear the input
-        # if st.button('Clear'):
-        #     st.session_state.text_input = ''
-        #     # st.experimental_rerun()  # Optional: re-run the app to reset the input
-        
-        def update():
-            st.session_state.text_input += st.session_state.text_input_value
-        
+        #----- Use this get user input with a clear-text-input box feature
+        # At this time Streamlit didn't have any straightforward way to reset input upon submit
         with st.form(key='user_form',clear_on_submit=True):
             user_input = st.text_input("Type your message here",placeholder="Ask me about your data", key='text_input_value')
-            submit = st.form_submit_button(label='')
+            submit = st.form_submit_button(label='') 
             # st.write(submit)   
         with st.spinner("Generating response..."):
                if user_input:
