@@ -107,11 +107,11 @@ if uploaded_file is not None:
             submit = st.form_submit_button(label='Update', on_click=update)
             st.write(submit)   
         with st.spinner("Generating response..."):
-               st.write(f'Showing response for the query "{user_input}":\n')
                if submit:
+                       st.write(f'Showing response for the query "{st.session_state.text_input}":\n')
                 # try:
-                        answer = generateResponse(dataFrame=df,prompt=st.session_state.text_input)
-                        st.write(answer)
+                       answer = generateResponse(dataFrame=df,prompt=st.session_state.text_input)
+                       st.write(answer)
                 # except InvalidOutputValueMismatch as e:
                         # st.image("./exports/charts/temp_chart.png")
                 
