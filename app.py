@@ -85,6 +85,7 @@ if uploaded_file is not None:
         # user_input = st.text_input("Type your message here",placeholder="Ask me about your data")
         #----- Use this get user input with a clear-text-input box feature
         # At this time Streamlit didn't have any straightforward way to reset input upon submit
+        # The current hack requires adding a submit button to the form, which isn't necessary
         with st.form(key='user_form',clear_on_submit=True):
             user_input = st.text_input("Type your message here",placeholder="Ask me about your data", key='text_input_value')
             submit = st.form_submit_button(label='') 
@@ -92,8 +93,8 @@ if uploaded_file is not None:
         with st.spinner("Generating response..."):
                if user_input:
                 # try:
-                       answer = generateResponse(dataFrame=df,prompt=user_input)
                        st.write(f'Showing response for the query "{user_input}":\n')
+                       answer = generateResponse(dataFrame=df,prompt=user_input)
                        st.write(answer)
                 # except InvalidOutputValueMismatch as e:
                         # st.image("./exports/charts/temp_chart.png")
