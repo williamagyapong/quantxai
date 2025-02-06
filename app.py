@@ -81,7 +81,7 @@ if uploaded_file is not None:
         with st.expander("Preview", expanded=True):
             st.write(df.head())
 
-        # Plot the data
+        #---------- Get and handle user prompt ----------
         # user_input = st.text_input("Type your message here",placeholder="Ask me about your data")
         #----- Create a button to clear the input
         # Initialize session state to store text input value
@@ -93,13 +93,14 @@ if uploaded_file is not None:
         
         # Store the user input in session state
         st.session_state.text_input = user_input
-        
+        st.session_state.text_input = ''
         # Add a button to clear the input
-        if st.button('Clear'):
-            st.session_state.text_input = ''
-            # st.experimental_rerun()  # Optional: re-run the app to reset the input
+        # if st.button('Clear'):
+        #     st.session_state.text_input = ''
+        #     # st.experimental_rerun()  # Optional: re-run the app to reset the input
                 
         with st.spinner("Generating response..."):
+               st.write(f'Showing response for the query "{user_input}":\n')
                if user_input:
                 # try:
                         answer = generateResponse(dataFrame=df,prompt=user_input)
