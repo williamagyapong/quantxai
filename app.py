@@ -39,7 +39,7 @@ def generateResponse(dataFrame,prompt):
         return answer
 
 
-# Set the app tible and layout
+# Set the app title and layout
 st.set_page_config(page_title="Quantilytix Insights", page_icon="quant-logo.jpeg")
 
 # Header section with logo and title
